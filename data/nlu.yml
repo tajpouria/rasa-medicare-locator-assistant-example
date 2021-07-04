@@ -1,5 +1,4 @@
-version: "3.0"
-
+version: "2.0"
 nlu:
 - intent: greet
   examples: |
@@ -16,9 +15,11 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
-
+    - Hi
+    - HI
 - intent: goodbye
   examples: |
+    - good afternoon
     - cu
     - good by
     - cee you later
@@ -29,7 +30,7 @@ nlu:
     - see you around
     - bye bye
     - see you later
-
+    - Bye
 - intent: affirm
   examples: |
     - yes
@@ -38,7 +39,7 @@ nlu:
     - of course
     - that sounds good
     - correct
-
+    - Yeah alot
 - intent: deny
   examples: |
     - no
@@ -48,7 +49,6 @@ nlu:
     - don't like that
     - no way
     - not really
-
 - intent: mood_great
   examples: |
     - perfect
@@ -65,7 +65,8 @@ nlu:
     - so so perfect
     - so good
     - so perfect
-
+    - good
+    - Good
 - intent: mood_unhappy
   examples: |
     - my day was horrible
@@ -82,10 +83,52 @@ nlu:
     - extremly sad
     - so saad
     - so sad
-
 - intent: bot_challenge
   examples: |
     - are you a bot?
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+- intent: facility_search
+  examples: |
+    - I'm looking for a [hospital](facility_type)
+    - I m looking for a [hospital](facility_type)
+    - i'm looking for a [hospital](facility_type)
+    - I'm looking  for a [hospital](facility_type)
+    - I'm looking for [Hospital](facility_type)
+    - I want to find a [hospital](facility_type)
+    - Ok now can u find me a [hospital](facility_type) near me?
+    - Can you find me a [hospital](facility_type) near me?
+- intent: inform
+  examples: |
+    - [Yerevan](location)
+    - [yerevan](location)
+    - UK, [London](location)
+    - [London](location), uk
+- intent: asking_bot_mood
+  examples: |
+    - How are you
+    - How you doing?
+    - How's it going?
+    - Yo
+- intent: tell_joke
+  examples: |
+    - tell me a joke
+    - make me laugh
+    - tell me joke
+    - Joke plz
+    - Tell me a knock knock joke
+- lookup: location_lookup.txt
+  examples: |
+    - Yerevan
+    - Gyumri
+    - Vanadzor
+    - Vagharshapat
+    - Hrazdan
+    - Stepanavan
+    - Abovyan
+    - Kapan
+    - Ararat
+    - Armavir
+    - Gavarr
+    - Artashat
