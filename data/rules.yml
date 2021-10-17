@@ -1,12 +1,18 @@
 version: "3.0"
 
 rules:
-  - rule: Say goodbye anytime the user says goodbye
+  - rule: Activate Facility Form
     steps:
-      - intent: goodbye
-      - action: utter_goodbye
+      - intent: inform
+      - action: facility_form
+      - active_loop: facility_form
 
-  - rule: Say 'I am a bot' anytime the user challenges
+  - rule: Submit Facility Form
+    condition:
+      - active_loop: facility_form
     steps:
-      - intent: bot_challenge
-      - action: utter_iamabot
+      - action: facility_form
+      - active_loop: null
+      - slot_was_set:
+        - requested_slot: null
+      - action: action_submit_facility_form

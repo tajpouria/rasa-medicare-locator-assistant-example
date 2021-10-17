@@ -22,28 +22,30 @@ slots:
     type: text
     influence_conversation: true
     mappings:
-      - type: custom
-  facility_address:
-    type: text
-    influence_conversation: true
-    mappings:
-      - type: custom
+      - type: from_entity
+        entity: facility_type
+        conditions:
+          - active_loop: facility_form
   facility_id:
     type: text
     influence_conversation: true
     mappings:
-      - type: custom
+      - type: from_entity
+        entity: facility_id
   location:
     type: text
     influence_conversation: true
     mappings:
-      - type: custom
+      - type: from_entity
+        entity: location
+        conditions:
+          - active_loop: facility_form
 
 forms:
   facility_form:
     required_slots:
-      - location
       - facility_type
+      - location
 
 actions:
   - utter_greet
@@ -54,6 +56,7 @@ actions:
   - utter_address
   - find_facility_types
   - find_healthcare_address
+  - action_submit_facility_form
 
 responses:
   utter_greet:

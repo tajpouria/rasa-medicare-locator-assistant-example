@@ -1,60 +1,28 @@
 version: "3.0"
 
 stories:
-  - story: hospital search happy path
+  - story: happy_path
     steps:
       - intent: greet
-      - action: utter_how_can_i_help
-      - intent: search_provider
-        entities:
-          - facility_type: hospital
-          - location: San Francisco
-      - action: action_facility_search
-      - slot_was_set:
-        - location: "300 Hyde St, San Francisco"
-      - intent: thanks
-      - action: utter_goodbye
-
-  - story: hospital search + location
-    steps:
-      - intent: greet
-      - action: utter_how_can_i_help
-      - intent: search_provider
-        entities:
-          - facility_type: hospital
-      - action: utter_ask_location
+      - action: find_facility_types
       - intent: inform
-        entities:
+      - action: facility_form
+      - active_loop: facility_form
+      - slot_was_set:
+          - requested_slot: facility_type
+      - slot_was_set:
+          - facility_type: hospital
+      - slot_was_set:
+          - requested_slot: null
+      - slot_was_set:
+          - requested_slot: location
+      - slot_was_set:
           - location: San Francisco
+      - slot_was_set:
+          - requested_slot: null
+      - active_loop: null
       - action: action_facility_search
       - slot_was_set:
-        - location: "300 Hyde St, San Francisco"
+          - location: "300 Hyde St, San Francisco"
       - intent: thanks
-      - action: utter_goodbye
-
-  - story: happy path
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: mood_great
-      - action: utter_happy
-
-  - story: sad path 1
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: mood_unhappy
-      - action: utter_cheer_up
-      - action: utter_did_that_help
-      - intent: affirm
-      - action: utter_happy
-
-  - story: sad path 2
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: mood_unhappy
-      - action: utter_cheer_up
-      - action: utter_did_that_help
-      - intent: deny
-      - action: utter_goodbye
+      - action: utter_noworries
