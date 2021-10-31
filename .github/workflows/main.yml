@@ -1,0 +1,30 @@
+
+
+name: CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  training-testing:
+    name: Training and Testing
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Rasa Train and Test GitHub Action
+        uses: RasaHQ/rasa-train-test-gha@main
+        with:
+          requirements_file: requirements.txt
+          data_validate: true
+          rasa_train: true
+          cross_validation: true
+          rasa_test: true
+          test_type: all
+          publish_summary: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload model
+        if: github.ref == 'refs/heads/main'
+        uses: actions/upload-artifact@master
+        with:
+          name: model
+          path: models
