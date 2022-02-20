@@ -10,6 +10,8 @@ stories:
           - facility_type: hospital
           - location: San Francisco
       - action: action_facility_search
+      - slot_was_set:
+        - location: "300 Hyde St, San Francisco"
       - intent: thanks
       - action: utter_goodbye
 
@@ -25,6 +27,8 @@ stories:
         entities:
           - location: San Francisco
       - action: action_facility_search
+      - slot_was_set:
+        - location: "300 Hyde St, San Francisco"
       - intent: thanks
       - action: utter_goodbye
 
