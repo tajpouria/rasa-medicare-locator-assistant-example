@@ -33,6 +33,12 @@ slots:
     mappings:
       - type: custom
 
+forms:
+  restaurant_form:
+    required_slots:
+        - location
+        - facility_type
+
 actions:
   - action_facility_search
 
