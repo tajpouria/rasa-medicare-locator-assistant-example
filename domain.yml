@@ -8,8 +8,43 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
+  - inform
+  - search_provider
+  - thanks
+
+entities:
+  - location
+  - facility_type
+
+slots:
+  location:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: custom
+  facility_type:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: custom
+  address:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: custom
+
+actions:
+  - action_facility_search
 
 responses:
+  utter_how_can_i_help:
+    - text: "Hello. I am a medicare locator. I can help you find nearest hospital. How can I help?"
+    - text: "Hi. My name is medicare locator. How can I help you today?"
+
+  utter_ask_location:
+    - text: "Can you provide your location please?"
+    - text: "To find the nearest {facility_type} I need your address."
+
   utter_greet:
     - text: "Hey! How are you?"
 
