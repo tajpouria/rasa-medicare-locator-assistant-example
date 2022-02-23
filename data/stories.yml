@@ -1,14 +1,11 @@
-version: "3.0"
-
+version: "2.0"
 stories:
-
 - story: happy path
   steps:
   - intent: greet
   - action: utter_greet
   - intent: mood_great
   - action: utter_happy
-
 - story: sad path 1
   steps:
   - intent: greet
@@ -18,13 +15,62 @@ stories:
   - action: utter_did_that_help
   - intent: affirm
   - action: utter_happy
-
 - story: sad path 2
   steps:
   - intent: greet
   - action: utter_greet
   - intent: mood_unhappy
   - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+- story: Story from Conversation ID 1858193b086a4ce39e7bb906f083c146
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+  - intent: facility_search
+  - action: utter_ask_location
+- story: Story from Conversation ID 0ec59b8f056d4f96831ba8a553242439
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: facility_search
+    entities:
+    - facility_type: hospital
+  - slot_was_set:
+    - facility_type: hospital
+  - action: utter_ask_location
+  - intent: inform
+    entities:
+    - location: Yerevan
+  - slot_was_set:
+    - facility_type: hospital
+  - slot_was_set:
+    - location: Yerevan
+  - action: action_find_facility
+- story: Story from Conversation ID 6e2098fce9e44959865d968d55cb1bdd
+  steps:
+  - intent: tell_joke
+  - action: action_tell_joke
+  - action: utter_did_that_help
+- story: Story from Conversation ID ad4a7858b2c14aacaffcdcaa1faf481d
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+  - intent: tell_joke
+  - action: action_tell_joke
+  - action: utter_did_that_help
+  - intent: tell_joke
+  - action: action_tell_joke
+  - action: utter_did_that_help
+  - intent: tell_joke
+  - action: action_tell_joke
   - action: utter_did_that_help
   - intent: deny
   - action: utter_goodbye
