@@ -17,6 +17,7 @@ nlu:
     - good afternoon
     - Hi
     - HI
+    - Hello
 - intent: goodbye
   examples: |
     - good afternoon
@@ -67,6 +68,7 @@ nlu:
     - so perfect
     - good
     - Good
+    - OK this is good
 - intent: mood_unhappy
   examples: |
     - my day was horrible
