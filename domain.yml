@@ -14,6 +14,7 @@ intents:
 - inform
 - asking_bot_mood
 - tell_joke
+- ask_weather
 entities:
 - location
 - facility_type

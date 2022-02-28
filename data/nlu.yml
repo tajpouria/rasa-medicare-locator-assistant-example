@@ -69,6 +69,7 @@ nlu:
     - good
     - Good
     - OK this is good
+    - I'm good
 - intent: mood_unhappy
   examples: |
     - my day was horrible
@@ -120,6 +121,10 @@ nlu:
     - tell me joke
     - Joke plz
     - Tell me a knock knock joke
+- intent: ask_weather
+  examples: |
+    - How's the weather today?
+    - Tell me about weather?
 - lookup: location_lookup.txt
   examples: |
     - Yerevan
