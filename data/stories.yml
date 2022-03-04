@@ -74,3 +74,8 @@ stories:
   - action: utter_did_that_help
   - intent: deny
   - action: utter_goodbye
+- story: Story from Conversation ID aeae033af3f041e78c05413f05f66338
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy

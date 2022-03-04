@@ -86,12 +86,14 @@ nlu:
     - extremly sad
     - so saad
     - so sad
+    - I'm happy
 - intent: bot_challenge
   examples: |
     - are you a bot?
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+    - ask I can buy a ticket
 - intent: facility_search
   examples: |
     - I'm looking for a [hospital](facility_type)
